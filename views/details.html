@@ -1,0 +1,48 @@
+﻿<div class="container">
+    <div class="row">
+        <div style="text-align: right;" class="col-xs-11">
+            Fahrenheit
+            <!--Radio buttons for unit selection-->
+            <input type="radio" ng-model="unit" value="f" ng-click="updateUnit('f')" />  |
+            <input type="radio" ng-model="unit" value="c" ng-click="updateUnit('c')" /> Celsius
+        </div>
+    </div>
+    <div class="row"><br /></div>
+    <div class="row">
+        <div class="col-xs-12">
+            <!--Displays location name and current time-->
+                <h3 ng-bind="title"></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-8"></div>
+        <div class="col-xs-2">High</div>
+        <div class="col-xs-2">Low</div>
+    </div>
+    <br />
+    <!--Loops through next 5 days and Displays: -->
+    <div class="row" ng-repeat="fc in forecast">
+        <hr/>
+        <!--Date-->
+        <div class="col-xs-3">
+            {{fc['date']}}
+        </div>
+        <div class="col-xs-2">
+            <!---Image associated with current conditions-->
+            <img ng-src="http://l.yimg.com/a/i/us/we/52/{{fc['code']}}.gif" />
+        </div>
+        <div class="col-xs-3">
+            <!--Current conditions-->
+            {{fc['text']}}
+        </div>
+        <div class="col-xs-2">
+            <!--Estimated high temp-->
+            {{fc['high']}}
+        </div>
+        <div class="col-xs-2">
+            <!--Estimated low temp-->
+            {{fc['low']}}
+        </div>
+    </div>
+    <hr/>
+</div>

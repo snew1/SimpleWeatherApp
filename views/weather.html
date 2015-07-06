@@ -1,0 +1,60 @@
+﻿<!--Page Listing all Locations-->
+<div class="container">
+    <div class="row">
+        <div style="text-align: right;" class="col-xs-11">
+            Fahrenheit
+            <!--Radio Buttons for unit selection-->
+            <input type="radio" ng-model="unit" value="f" ng-click="updateUnit('f')" />  |
+            <input type="radio" ng-model="unit" value="c" ng-click="updateUnit('c')" /> Celsius
+        </div>
+    </div>
+    <div class="row"><br /><br /></div>
+    <div class="row">
+        <div class="col-xs-8">
+            <!--Gets and Displays Current Date-->
+            {{forecast[0].date}}
+        </div>
+        <div class="col-xs-4">
+            <!--Filter for ordering information by name/high temp/low temp-->
+            View By:
+            <select ng-model="orderSet">
+                <option value="cityName">City</option>
+                <option value="-hi">High</option>
+                <option value="lo">Low</option>
+            </select>
+        </div>
+    </div>
+    <div class="row"><br /><br /></div>
+    <div class="row">
+        <div class="col-xs-6">Click City For 5-Day Forecast</div>
+        <div class="col-xs-2"></div>
+        <div class="col-xs-2">High</div>
+        <div class="col-xs-2">Low</div>
+    </div>
+
+    <!--Loops through all locations and Displays: -->
+    <div class="row" ng-repeat="fc in forecast | orderBy:orderSet">
+        <hr />
+        <div class="col-xs-3">
+            <!--Name of City and Link to expanded details-->
+            <a href="#/details/{{fc['cityCode']}}">{{fc['cityName']}}</a>
+        </div>
+        <div class="col-xs-2">
+            <!---Image associated with current conditions-->
+            <img ng-src="http://l.yimg.com/a/i/us/we/52/{{fc['code']}}.gif" />
+        </div>
+        <div class="col-xs-3">
+            <!--Current conditions-->
+            {{fc['text']}}
+        </div>
+        <div class="col-xs-2">
+            <!--Estimated high temp-->
+            {{fc['hi']}}
+        </div>
+        <div class="col-xs-2">
+            <!--Estimated low temp-->
+            {{fc['lo']}}
+        </div>
+    </div>
+    <hr/>
+</div>
