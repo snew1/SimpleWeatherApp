@@ -15,3 +15,5 @@ The project contains an app.js and controller.js file that defines several contr
 The weather and details controllers send an ajax call to the Yahoo using their weather API to get data on several cites. The data is then parsed into JSON and the relevant information ie City Name, High Temperature is saved to objects to be displayed by the views.
 
 The index.html page acts as a template for the other view pages and displays the relevent data based on which controller is being used
+
+Twitter Bootstrap was used as a style template
