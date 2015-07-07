@@ -17,3 +17,5 @@ The weather and details controllers send an ajax call to the Yahoo using their w
 The index.html page acts as a template for the other view pages and displays the relevent data based on which controller is being used
 
 Twitter Bootstrap was used as a style template, this also allows for mobile responsiveness
+
+Main code is contained in the js folder, views folder and index.html in the root folder
